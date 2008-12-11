@@ -1,0 +1,193 @@
+% \iffalse
+% 
+% Det här är mallar för PM och brev på KI. Jag har baserat större
+% delen av dokumentet på nadakurs-paketet av Lars Engebretsen på NADA,
+% KTH. Mallarna är skrivna i LaTeX av Per Unneberg.
+%
+% \fi
+%
+%
+% \section{Systemkrav}
+% \label{sec:systemkrav}
+%
+% För närvarande har Karolinska endast mallar för Word-dokument.
+%
+% \section{Källkoden}
+% \label{sec:kallkoden}
+%
+%
+% \StopEventually
+
+
+% \subsection{PM-mallen}
+% \label{sec:pm-mallen}
+
+
+%
+%<*classes>
+\NeedsTeXFormat{LaTeX2e}[1998/12/01]
+%<kipm>\ProvidesClass{ki-pm}
+[2008/12/11 v1.0
+%<kipm> Mall för PM på KI]
+\def\@kipm@color{\@kipm@default@color}
+\DeclareOption{color}{\def\@kipm@color{cmyk}}%
+\DeclareOption{colour}{\def\@kipm@color{cmyk}}%
+\DeclareOption{svv}{\def\@kipm@color{svv}}%
+\DeclareOption{b&w}{\def\@kipm@color{svv}}%
+%<*kipm>
+\newif\if@kidocs@twocolumn \@kidocs@twocolumntrue
+\DeclareOption{onecolumn}{\@kidocs@twocolumnfalse}%
+\DeclareOption{twocolumn}{\@kidocs@twocolumntrue}%
+%</kipm>
+%<*kipm>
+\newif\if@kidocs@landscape \@kidocs@landscapefalse
+\DeclareOption{landscape}{\@kidocs@landscapetrue}%
+\DeclareOption{portrait}{\@kidocs@landscapefalse}%
+%</kipm>
+%<*kipm>
+\if@kidocs@landscape
+  \LoadClass[a4paper,fleqn,10pt,landscape]{article}
+\else
+  \LoadClass[a4paper,fleqn,\if@nadaten@twocolumn 10pt\else 11pt\fi]{article}
+\fi
+%</kipm>
+\RequirePackage[T1]{fontenc}
+%<*kipm>
+  \if@kidocs@landscape
+    \def\@oddhead{\parbox{\textwidth}{\sffamily\footnotesize
+      \centering\begingroup
+      \let\kidocs@bullet\relax
+      \def\\{\kidocs@bullet \let\kidocs@bullet\kidocs@do@bullet}
+      \let\and\\
+      \if@kidocs@course\\\thecourse\fi
+      \if@kidocs@semester\\\thesemester\fi
+      \if@kidocs@author\\\theauthor\fi
+      \\\thetitle
+      \endgroup
+      \smallskip
+      \setlength{\@tempdima}{\textwidth}
+      \addtolength{\@tempdima}{4em}
+      \centerline{\hbox to\@tempdima{\hrulefill}}}}%
+  \else
+%</kipm>
+\let\@oddhead\@empty
+%<kipm>  \fi
+\let\@evenhead\@oddhead
+%<*kipm>
+  \if@kidocs@landscape
+    \def\@oddfoot{\parbox{\textwidth}{\sffamily\footnotesize
+      \setlength{\@tempdima}{\textwidth}
+      \addtolength{\@tempdima}{4em}
+      \centerline{\hbox to\@tempdima{\hrulefill}}
+      \smallskip
+      \rightline{%
+        \thepage\space(\@ki@last@page)%
+        \@kidocs@language{Sida}{Page}\space\thepage\space
+        (\@kidocs@language{av}{of}\space\@ki@last@page)%
+      }}}%
+    \let\@evenfoot\@oddfoot
+  \else
+%</kipm>
+    \def\@oddfoot{\parbox{\textwidth}{\sffamily\footnotesize
+      \rightline{%
+      }
+      \smallskip
+      \setlength{\@tempdima}{\textwidth}
+      \addtolength{\@tempdima}{4em}
+      \centerline{\hbox to\@tempdima{\hrulefill}}
+      \smallskip
+      \centering\begingroup
+      \let\kidocs@bullet\relax
+      \def\\{\kidocs@bullet \let\kidocs@bullet\kidocs@do@bullet}
+      \let\and\\
+%<*kipm>
+      \if@kidocs@author
+        \par
+        \let\kidocs@bullet\relax
+        \\\theauthor
+      \fi
+%</kipm>
+\endgroup}}%
+\def\@evenfoot{\parbox{\textwidth}{\sffamily\footnotesize
+    \if@twoside\let\next\leftline\else\let\next\rightline\fi
+    \next{%
+      \thepage\space(\@nada@last@page)%
+    }
+    \smallskip
+    \setlength{\@tempdima}{\textwidth}
+    \addtolength{\@tempdima}{4em}
+    \centerline{\hbox to\@tempdima{\hrulefill}}
+    \smallskip
+    \centering\begingroup
+    \let\kidocs@bullet\relax
+    \def\\{\kidocs@bullet \let\kidocs@bullet\kidocs@do@bullet}
+    \let\and\\
+%<*pm,tenta>
+      \if@nadakurs@course\\\thecourse\fi
+      \if@nadakurs@semester\\\thesemester\fi
+      \if@nadakurs@author
+        \par
+        \let\nadakurs@bullet\relax
+        \\\theauthor
+      \fi
+%</pm,tenta>
+      \endgroup}}%
+%<doc,pm>  \fi
+  \let\@mkboth\@gobbletwo
+  \let\chaptermark\@gobble
+  \let\sectionmark\@gobble
+}
+%<*doc,pm>
+\def\ps@plain{%
+  \let\@oddhead\@empty\let\@evenhead\@empty
+  \def\@oddfoot{\hfil\thepage\space(\@nada@last@page)\hfil}%
+  \let\@evenfoot\@oddfoot
+}
+%</doc,pm>
+%<!art>\geometry{a4paper,twoside,left=25mm,right=25mm,top=30mm,bottom=35mm,footskip=15mm}
+
+
+%</classes> 
+%
+
+% \section{Drivarfil för dokumentationen}
+% \label{sec:driv-dokem}
+
+%<*driver>
+\documentclass[a4paper]{ltxdoc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage{doc}
+\usepackage{ifpdf}
+\ifpdf
+  \def\pdfstringdefPreHook{\def\\{;\space}}
+  \RequirePackage[a4paper,bookmarksopen=true,
+                  pdfauthor={Per Unneberg},
+                  pdftitle={LaTeX-mallar för KI-mallar},
+                  pdfpagemode=None,pdfstartview=FitH]{hyperref}%
+\else
+  \RequirePackage[T1]{url}
+  \def\hypersetup#1{}%
+\fi
+\urlstyle{rm}
+\AtBeginDocument{\MakeShortVerb{\|}}
+\setcounter{StandardModuleDepth}{1}
+\title{\LaTeX-mallar för KI-dokument}
+\date{2008-12-11}
+\author{Per Unneberg}
+\OnlyDescription
+\begin{document}
+\maketitle
+\DocInput{kidocs.dtx}
+\end{document}
+%</driver>
+
+
+\endinput
+% Local Variables: 
+% mode: doctex
+% TeX-master: t
+% End: 

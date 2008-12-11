@@ -1,0 +1,9 @@
+\def\batchfile{kidocs.ins}
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\generate{%
+  \file{ki-pm.cls}{\from{kidocs.dtx}{classes, kipm}}
+  \file{kidocs.tex}{\from{kidocs.dtx}{driver}}
+}
+\endinput
