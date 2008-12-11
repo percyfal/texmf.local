@@ -1,0 +1,49 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{analysis}[2008/01/29]
+
+
+
+\RequirePackage{keyval}
+\RequirePackage{ifthen}
+
+\RequirePackage[np]{numprint}
+\RequirePackage{graphicx}
+\RequirePackage[OT1]{fontenc}
+\RequirePackage[latin1]{inputenc}
+\RequirePackage[colorlinks]{hyperref}
+\RequirePackage{pgf}
+\RequirePackage{xspace}
+\RequirePackage{url}
+\RequirePackage{booktabs}
+\RequirePackage{fancyvrb}
+\RequirePackage{palatino}
+\RequirePackage{paralist}
+\RequirePackage{amsmath}
+\RequirePackage[labelfont=bf, size=small]{caption}
+\RequirePackage[labelformat=empty]{subfig}
+\RequirePackage{rotating}
+\RequirePackage{amsfonts}
+\RequirePackage{booktabs}
+
+
+\newcommand{\R}{\texttt{R}\xspace}
+\newcommand{\Rpackage}[1]{\textit{#1}}
+\newcommand{\Robject}[1]{\texttt{#1}}
+\newcommand{\Rclass}[1]{\textit{#1}}
+\newcommand{\Rfunarg}[1]{\textit{#1}}
+\newcommand{\Rfunction}[1]{\textit{#1}}
+\newcommand{\F}{\emph{F}\xspace}
+\newcommand{\p}{\emph{p}\xspace}
+\newcommand{\threep}{\ensuremath{3^\prime}\xspace}
+\newcommand{\fivep}{\ensuremath{5^\prime}\xspace}
+
+
+%% Setting up hyperref
+\hypersetup{
+  linkcolor=red,          % color of internal links
+  citecolor=green,        % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=blue           % color of external links
+}
+
+
