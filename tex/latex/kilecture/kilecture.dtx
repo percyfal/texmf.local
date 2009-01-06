@@ -1,0 +1,114 @@
+% \iffalse
+
+% This is a style file for lectures at Karolinska Institute. Written
+% by Per Unneberg.
+
+% \fi
+
+% \begin{abstract} 
+
+%   \texttt{kilecture} is a set of style files for lecturing at
+%   Karolinska Institute. They were written to allow for a consistent
+%   and coherent presentation layout for lectures, exams, and more.
+
+% \end{abstract}
+
+
+% \section{Introduction}
+% \label{sec:introduction}
+
+
+
+% \section{Implementation}
+% \label{sec:implementation}
+
+% \StopEventually
+
+% \subsection{Lecture files}
+% \label{sec:lecture-files}
+
+
+% \subsection{KI lecture}
+% \label{sec:ki-lecture}
+
+%<*kilecture>
+\NeedsTeXFormat{LaTeX2e}[1998/12/01]
+\ProvidesClass{ki-lecture}
+[2009/01/06 v1.0 KI lecture style file]
+% Options
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
+\DeclareOption{vc}{\input{vc}}
+\ProcessOptions\relax
+
+\LoadClass[xcolor=x11names, dvips]{beamer}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[OT1]{fontenc}
+\RequirePackage[swedish]{babel}
+\RequirePackage[np]{numprint}
+\RequirePackage{graphicx}
+\RequirePackage{pstricks}
+\RequirePackage{pgfpages}
+\RequirePackage{url}
+\RequirePackage{hyperref}
+
+\usetheme{KI}
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\setbeamertemplate{title page}[default][left]
+
+\theoremstyle{example}
+\newtheorem{exempel}{Exempel}
+\graphicspath{{grf/}}
+
+
+% Setting up hyperref
+\hypersetup{
+  linkcolor=red,          % color of internal links
+  citecolor=green,        % color of links to bibliography
+  filecolor=magenta,      % color of file links
+  urlcolor=blue           % color of external links
+}
+
+
+%</kilecture>
+
+% \subsection{Documentation driver}
+% \label{sec:documentation-driver}
+
+%<*driver>
+\documentclass[a4paper]{ltxdoc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[swedish]{babel}
+\usepackage{doc}
+\usepackage{ifpdf}
+\ifpdf
+  \def\pdfstringdefPreHook{\def\\{;\space}}
+  \RequirePackage[a4paper,bookmarksopen=true,
+                  pdfauthor={Per Unneberg},
+                  pdftitle={LaTeX class files för KI lectures},
+                  pdfpagemode=None,pdfstartview=FitH]{hyperref}%
+\else
+  \RequirePackage[T1]{url}
+  \def\hypersetup#1{}%
+\fi
+\urlstyle{rm}
+\AtBeginDocument{\MakeShortVerb{\|}}
+\setcounter{StandardModuleDepth}{1}
+\title{\LaTeX class files for KI lectures}
+\date{2009-01-06}
+\author{Per Unneberg}
+\OnlyDescription
+\begin{document}
+\maketitle
+\DocInput{kilecture.dtx}
+\end{document}
+%</driver>
+
+% \endinput
+% Local Variables: 
+% mode: doctex
+% TeX-master: t
+% End: 

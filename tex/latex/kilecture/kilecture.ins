@@ -1,0 +1,9 @@
+\def\batchfile{kilecture.ins}
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\generate{%
+  \file{ki-lecture.cls}{\from{kilecture.dtx}{kilecture}}
+  \file{kilecture.tex}{\from{kilecture.dtx}{driver}}
+}
+\endinput
