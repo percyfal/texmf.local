@@ -122,8 +122,10 @@
 \RequirePackage{rotating}
 \RequirePackage{amsfonts}
 \RequirePackage{booktabs}
+\RequirePackage{biocon}
+\RequirePackage[round]{natbib}
 
-\renewcommand{\date}[1][\today]{#1}
+% \renewcommand{\date}[1][\today]{#1}
 %    \end{macrocode}
 % Furthermore, I define a number of useful macros.
 %
@@ -146,7 +148,7 @@
 }
 
 \DeclareOption{biology}{
-\RequirePackage{biocon}
+
 %% Biology
 \newcommand{\threep}{\ensuremath{3^\prime}\xspace}
 \newcommand{\fivep}{\ensuremath{5^\prime}\xspace}
