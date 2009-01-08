@@ -35,9 +35,10 @@
 \NeedsTeXFormat{LaTeX2e}[1998/12/01]
 \ProvidesClass{ki-lecture}
 [2009/01/06 v1.0 KI lecture style file]
+
 % Options
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
-\DeclareOption{vc}{\input{vc}}
+\DeclareOption{vc}
 \ProcessOptions\relax
 
 \LoadClass[xcolor=x11names, dvips]{beamer}
@@ -52,12 +53,14 @@
 \RequirePackage{url}
 \RequirePackage{hyperref}
 
+% Beamer config
 \usetheme{KI}
 \def\newblock{\hskip .11em plus .33em minus .07em}
 \setbeamertemplate{title page}[default][left]
-
 \theoremstyle{example}
 \newtheorem{exempel}{Exempel}
+
+% Graphics
 \graphicspath{{grf/}}
 
 
@@ -68,6 +71,12 @@
   filecolor=magenta,      % color of file links
   urlcolor=blue           % color of external links
 }
+
+
+%% New commands for version control
+\newcommand{\VCVersion}{VCVersion NA}
+\newcommand{\VCCheckin}{VCCheckin NA}
+%% Date command renewed
 
 
 %</kilecture>
