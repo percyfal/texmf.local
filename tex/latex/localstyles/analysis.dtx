@@ -31,6 +31,7 @@
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
+\MakeShortVerb{\=}
 \begin{document}
   \DocInput{analysis.dtx}
   \PrintChanges
@@ -59,6 +60,7 @@
 %
 %
 % \changes{v1.0}{2009/01/07}{Initial version}
+% \changes{v1.01}{2009/01/08}{Working version. Added vc date string.}
 %
 % \GetFileInfo{analysis.dtx}
 %
@@ -124,9 +126,16 @@
 \RequirePackage{booktabs}
 \RequirePackage{biocon}
 \RequirePackage[round]{natbib}
-
-% \renewcommand{\date}[1][\today]{#1}
 %    \end{macrocode}
+
+% I define a default string for inclusion in a |\thanks| statement.
+% Note that the version tags are based on the variables defined in the
+% bundle =vc= for latex.
+%    \begin{macrocode}
+\newcommand{\VCdatestring}[1]%
+[This file is based on version \VCRevision \ (checkin \GITAuthorDate)]{#1}
+%    \end{macrocode}
+
 % Furthermore, I define a number of useful macros.
 %
 %    \begin{macrocode}
