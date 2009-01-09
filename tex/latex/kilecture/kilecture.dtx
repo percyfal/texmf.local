@@ -1,48 +1,113 @@
-% \iffalse
-
-% This is a style file for lectures at Karolinska Institute. Written
-% by Per Unneberg.
-
+% \iffalse meta-comment
+%
+% Copyright (C) 2009 by Per Unneberg <per.unneberg@ki.se>
+% -------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of LaTeX 
+% version 1999/12/01 or later.
+%
 % \fi
-
-% \begin{abstract} 
-
-%   \texttt{kilecture} is a set of style files for lecturing at
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{kilecture.dtx}
+%</driver>
+%<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<lecture>\ProvidesClass{kilecture}
+%<kipres>\ProvidesClass{ki-presentation}
+%<*class>
+    [2009/01/09 v1.0 .dtx kilecture file]
+%</class>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\EnableCrossrefs         
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{kilecture.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0}{2009/01/09}{Initial version}
+%
+% \GetFileInfo{kilecture.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+% 
+%
+% \title{The \textsf{kilecture} class\thanks{This document
+%   corresponds to \textsf{kilecture}~\fileversion, dated \filedate.}}
+% \author{Per Unneberg\\ \texttt{per.unneberg@ki.se}}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   The \textsf{kilecture} bundle contains class files for lectures at
+%   Karolinska Institute.
+% \end{abstract}
+%
+% \section{Introduction}
+%
+%   \textsf{kilecture} is a set of style files for lecturing at
 %   Karolinska Institute. They were written to allow for a consistent
 %   and coherent presentation layout for lectures, exams, and more.
-
-% \end{abstract}
-
-
-% \section{Introduction}
-% \label{sec:introduction}
-
-
-
+%
+% \section{Usage}
+%
+% Put text here.
+%
+% \DescribeMacro{\dummyMacro}
+% This macro does nothing.\index{doing nothing|usage} It is merely an
+% example.  If this were a real macro, you would put a paragraph here
+% describing what the macro is supposed to do, what its mandatory and
+% optional arguments are, and so forth.
+%
+% \DescribeEnv{dummyEnv}
+% This environment does nothing.  It is merely an example.
+% If this were a real environment, you would put a paragraph here
+% describing what the environment is supposed to do, what its
+% mandatory and optional arguments are, and so forth.
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
 % \section{Implementation}
-% \label{sec:implementation}
-
-% \StopEventually
-
-% \subsection{Lecture files}
-% \label{sec:lecture-files}
-
-
-% \subsection{KI lecture}
-% \label{sec:ki-lecture}
-
-%<*kilecture>
-\NeedsTeXFormat{LaTeX2e}[1998/12/01]
-\ProvidesClass{ki-lecture}
-[2009/01/06 v1.0 KI lecture style file]
-
-% Options
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
-\DeclareOption{vc}
-\ProcessOptions\relax
-
-\LoadClass[xcolor=x11names, dvips]{beamer}
-
+%
+% 
+% 
+% The |ki-presentation| class is based on the |beamer| class.
+%    \begin{macrocode}
+%<ki-pres>\LoadClassWithOptions{beamer}
+%    \end{macrocode}
+% A set of standard classes are loaded for all KI-classes.
+%    \begin{macrocode}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[OT1]{fontenc}
 \RequirePackage[swedish]{babel}
@@ -52,18 +117,17 @@
 \RequirePackage{pgfpages}
 \RequirePackage{url}
 \RequirePackage{hyperref}
-
-% Beamer config
+%    \end{macrocode}
+% The presentation class configures |beamer|.
+%    \begin{macrocode}
 \usetheme{KI}
 \def\newblock{\hskip .11em plus .33em minus .07em}
 \setbeamertemplate{title page}[default][left]
 \theoremstyle{example}
 \newtheorem{exempel}{Exempel}
-
-% Graphics
-\graphicspath{{grf/}}
-
-
+%    \end{macrocode}
+% Finally, remaining configurations are done.
+%    \begin{macrocode}
 % Setting up hyperref
 \hypersetup{
   linkcolor=red,          % color of internal links
@@ -74,49 +138,40 @@
 
 
 %% New commands for version control
-\newcommand{\VCVersion}{VCVersion NA}
-\newcommand{\VCCheckin}{VCCheckin NA}
-%% Date command renewed
+\newcommand{\VCdatestring}[1]%
+[This file is based on version \VCRevision \ (checkin \GITAuthorDate)]{#1}
 
-
-%</kilecture>
-
-% \subsection{Documentation driver}
-% \label{sec:documentation-driver}
-
-%<*driver>
-\documentclass[a4paper]{ltxdoc}
-\usepackage[T1]{fontenc}
-\usepackage{textcomp}
-\usepackage{lmodern}
-\usepackage[utf8]{inputenc}
-\usepackage[swedish]{babel}
-\usepackage{doc}
-\usepackage{ifpdf}
-\ifpdf
-  \def\pdfstringdefPreHook{\def\\{;\space}}
-  \RequirePackage[a4paper,bookmarksopen=true,
-                  pdfauthor={Per Unneberg},
-                  pdftitle={LaTeX class files för KI lectures},
-                  pdfpagemode=None,pdfstartview=FitH]{hyperref}%
-\else
-  \RequirePackage[T1]{url}
-  \def\hypersetup#1{}%
-\fi
-\urlstyle{rm}
-\AtBeginDocument{\MakeShortVerb{\|}}
-\setcounter{StandardModuleDepth}{1}
-\title{\LaTeX class files for KI lectures}
-\date{2009-01-06}
-\author{Per Unneberg}
-\OnlyDescription
-\begin{document}
-\maketitle
-\DocInput{kilecture.dtx}
-\end{document}
-%</driver>
-
-% \endinput
+%    \end{macrocode}
+% \begin{macro}{\dummyMacro}
+% This is a dummy macro.  If it did anything, we'd describe its
+% implementation here.
+%    \begin{macrocode}
+\newcommand{\dummyMacro}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{environment}{dummyEnv}
+% This is a dummy environment.  If it did anything, we'd describe its
+% implementation here.
+%    \begin{macrocode}
+\newenvironment{dummyEnv}{%
+}{%
+%    \end{macrocode}
+% \changes{v1.0a}{2004/11/05}{Added a spurious change log entry to
+%   show what a change \emph{within} an environment definition looks
+%   like.}
+% Don't use |%| to introduce a code comment within a |macrocode|
+% environment.  Instead, you should typeset all of your comments with
+% \LaTeX---doing so gives much prettier results.  For comments within a
+% macro/environment body, just do an |\end{macrocode}|, include some
+% commentary, and do another |\begin{macrocode}|.  It's that simple.
+%    \begin{macrocode}
+}
+%    \end{macrocode}
+% \end{environment}
+%
+% \Finale
+\endinput
 % Local Variables: 
 % mode: doctex
 % TeX-master: t
