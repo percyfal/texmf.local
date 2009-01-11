@@ -153,11 +153,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % These macros typeset |R| function names, function arguments, package and object.
 %    \begin{macrocode}
 %% R related
-\DeclareRobustCommand{\R}{
-\@ifundefined{xspace}{}{\xspace}
-\texttt{R}\xspace
-}
-%%\newcommand{\R}{\texttt{R}\xspace}
+\newcommand{\R}{\texttt{R}\xspace}
 \newcommand{\Rpackage}[1]{\textit{#1}}
 \newcommand{\Robject}[1]{\texttt{#1}}
 \newcommand{\Rclass}[1]{\textit{#1}}
