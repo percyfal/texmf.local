@@ -16,14 +16,58 @@
 % \fi
 %
 % \iffalse
+%<*batchfile>
+\begingroup
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+
+\usedir{tex/latex/kilecture}
+
+\preamble
+
+This is a generated file.
+
+Copyright (C) 2009 by Per Unneberg <per.unneberg@ki.se>
+
+This file may be distributed and/or modified under the conditions of
+the LaTeX Project Public License, either version 1.2 of this license
+or (at your option) any later version.  The latest version of this
+license is in:
+
+   http://www.latex-project.org/lppl.txt
+
+and version 1.2 or later is part of all distributions of LaTeX version
+1999/12/01 or later.
+
+\endpreamble
+
+\generate{\file{kilecture.cls}{\from{kilecture.dtx}{class}}}
+
+\obeyspaces
+\Msg{*************************************************************}
+\Msg{*                                                           *}
+\Msg{* To finish the installation you have to move the following *}
+\Msg{* file into a directory searched by TeX:                    *}
+\Msg{*                                                           *}
+\Msg{*     kilecture.cls                                         *}
+\Msg{*                                                           *}
+\Msg{* To produce the documentation run the file kilecture.dtx   *}
+\Msg{* through LaTeX.                                            *}
+\Msg{*                                                           *}
+\Msg{* Happy TeXing!                                             *}
+\Msg{*                                                           *}
+\Msg{*************************************************************}
+
+\endgroup
+%</batchfile>
 %<*driver>
 \ProvidesFile{kilecture.dtx}
 %</driver>
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-%<lecture>\ProvidesClass{kilecture}
-%<kipres>\ProvidesClass{ki-presentation}
+%<class>\ProvidesClass{kilecture}
 %<*class>
-    [2009/01/09 v1.0 .dtx kilecture file]
+    [2009/01/11 v1.0 .dtx kilecture file]
 %</class>
 %
 %<*driver>
@@ -56,7 +100,7 @@
 %   Right brace   \}     Tilde         \~}
 %
 %
-% \changes{v1.0}{2009/01/09}{Initial version}
+% \changes{v1.0}{2009/01/11}{Initial version}
 %
 % \GetFileInfo{kilecture.dtx}
 %
@@ -69,56 +113,46 @@
 %
 % \maketitle
 %
-% \begin{abstract}
-%   The \textsf{kilecture} bundle contains class files for lectures at
-%   Karolinska Institute.
-% \end{abstract}
-%
 % \section{Introduction}
+% \label{sec:introduction}
 %
-%   \textsf{kilecture} is a set of style files for lecturing at
-%   Karolinska Institute. They were written to allow for a consistent
-%   and coherent presentation layout for lectures, exams, and more.
+% This class sets a standard presentation interface for presentations
+% at Karolinska Institute. It is based on the |beamer| package.
 %
 % \section{Usage}
+% \label{sec:usage}
 %
-% Put text here.
+% \begin{verbatim}
+% \documentclass{kilecture}
+% \begin{document}
 %
-% \DescribeMacro{\dummyMacro}
-% This macro does nothing.\index{doing nothing|usage} It is merely an
-% example.  If this were a real macro, you would put a paragraph here
-% describing what the macro is supposed to do, what its mandatory and
-% optional arguments are, and so forth.
+% \end{document}
+% \end{verbatim}
 %
-% \DescribeEnv{dummyEnv}
-% This environment does nothing.  It is merely an example.
-% If this were a real environment, you would put a paragraph here
-% describing what the environment is supposed to do, what its
-% mandatory and optional arguments are, and so forth.
 %
 % \StopEventually{\PrintChanges\PrintIndex}
 %
 % \section{Implementation}
+% \label{sec:implementation}
 %
-% 
-% 
-% The |ki-presentation| class is based on the |beamer| class.
+% As noted above, the class is derived from the |beamer|
+% class.
 %    \begin{macrocode}
-%<ki-pres>\LoadClassWithOptions{beamer}
+\LoadClassWithOptions{beamer}
 %    \end{macrocode}
-% A set of standard classes are loaded for all KI-classes.
+%
+% Thereafter, required packages are loaded.
 %    \begin{macrocode}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[OT1]{fontenc}
-\RequirePackage[swedish]{babel}
-\RequirePackage[np]{numprint}
-\RequirePackage{graphicx}
-\RequirePackage{pstricks}
-\RequirePackage{pgfpages}
-\RequirePackage{url}
+\RequirePackage[english, swedish]{babel}
 \RequirePackage{hyperref}
 %    \end{macrocode}
-% The presentation class configures |beamer|.
+% \subsection{Preset configuration}
+% \label{sec:preset-configuration}
+%
+% The beamer class is configured to use the |KI| beamer theme.
+%
 %    \begin{macrocode}
 \usetheme{KI}
 \def\newblock{\hskip .11em plus .33em minus .07em}
@@ -126,50 +160,6 @@
 \theoremstyle{example}
 \newtheorem{exempel}{Exempel}
 %    \end{macrocode}
-% Finally, remaining configurations are done.
-%    \begin{macrocode}
-% Setting up hyperref
-\hypersetup{
-  linkcolor=red,          % color of internal links
-  citecolor=green,        % color of links to bibliography
-  filecolor=magenta,      % color of file links
-  urlcolor=blue           % color of external links
-}
-
-
-%% New commands for version control
-\newcommand{\VCdatestring}[1]%
-[This file is based on version \VCRevision \ (checkin \GITAuthorDate)]{#1}
-
-%    \end{macrocode}
-% \begin{macro}{\dummyMacro}
-% This is a dummy macro.  If it did anything, we'd describe its
-% implementation here.
-%    \begin{macrocode}
-\newcommand{\dummyMacro}{}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{environment}{dummyEnv}
-% This is a dummy environment.  If it did anything, we'd describe its
-% implementation here.
-%    \begin{macrocode}
-\newenvironment{dummyEnv}{%
-}{%
-%    \end{macrocode}
-% \changes{v1.0a}{2004/11/05}{Added a spurious change log entry to
-%   show what a change \emph{within} an environment definition looks
-%   like.}
-% Don't use |%| to introduce a code comment within a |macrocode|
-% environment.  Instead, you should typeset all of your comments with
-% \LaTeX---doing so gives much prettier results.  For comments within a
-% macro/environment body, just do an |\end{macrocode}|, include some
-% commentary, and do another |\begin{macrocode}|.  It's that simple.
-%    \begin{macrocode}
-}
-%    \end{macrocode}
-% \end{environment}
-%
 % \Finale
 \endinput
 % Local Variables: 

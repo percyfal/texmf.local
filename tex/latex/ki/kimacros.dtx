@@ -232,6 +232,21 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \end{macro}
 % \end{macro}
 % \end{macro}
+%
+% \section{Version control macros}
+% \label{sec:version-control-macros}
+%
+% I define a default string for inclusion in a |\thanks| statement.
+% Note that the version tags are based on the variables defined in the
+% bundle |vc| for latex.
+%    \begin{macrocode}
+\newcommand{\VCfileversion}{\GITAbrHash}
+\newcommand{\VCcheckin}{\GITAuthorDate}
+\newcommand{\VCdatestring}[1]%
+[This file is based on version \VCfileversion \ (checkin \VCcheckin)]{#1}
+%    \end{macrocode}
+%
+
 % \Finale
 \endinput
 

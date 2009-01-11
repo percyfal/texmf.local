@@ -142,10 +142,9 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \RequirePackage[np]{numprint}
 \RequirePackage{graphicx}
 \RequirePackage[OT1]{fontenc}
-\RequirePackage[latin1]{inputenc}
-\RequirePackage[colorlinks]{hyperref}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{hyperref}
 \RequirePackage{pgf}
-\RequirePackage{xspace}
 \RequirePackage{url}
 \RequirePackage{booktabs}
 \RequirePackage{fancyvrb}
@@ -156,18 +155,15 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \RequirePackage{rotating}
 \RequirePackage{amsfonts}
 \RequirePackage{booktabs}
-\RequirePackage{biocon}
 \RequirePackage[round]{natbib}
 %    \end{macrocode}
 %
-% I define a default string for inclusion in a |\thanks| statement.
-% Note that the version tags are based on the variables defined in the
-% bundle |vc| for latex.
-%    \begin{macrocode}
-\newcommand{\VCdatestring}[1]%
-[This file is based on version \VCRevision \ (checkin \GITAuthorDate)]{#1}
-%    \end{macrocode}
+% \section{Bugs and problems}
+% \label{sec:bugs-and-problems}
 %
+% The package is currently incompatible with |kilecture| due to the
+% use of the |caption| package which in turn is incompatible with the
+% |beamer| class.
 %
 % \Finale
 \endinput
