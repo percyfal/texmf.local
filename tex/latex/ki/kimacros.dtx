@@ -1,0 +1,246 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2009 by Per Unneberg <per.unneberg@ki.se>
+% -------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of LaTeX 
+% version 1999/12/01 or later.
+% \fi
+%
+% \iffalse
+%<*batchfile>
+\begingroup
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+
+\usedir{tex/latex/kimacros}
+
+\preamble
+
+This is a generated file.
+
+Copyright (C) 2009 by Per Unneberg <per.unneberg@ki.se>
+
+This file may be distributed and/or modified under the conditions of
+the LaTeX Project Public License, either version 1.2 of this license
+or (at your option) any later version.  The latest version of this
+license is in:
+
+   http://www.latex-project.org/lppl.txt
+
+and version 1.2 or later is part of all distributions of LaTeX version
+1999/12/01 or later.
+
+\endpreamble
+
+\generate{\file{kimacros.sty}{\from{kimacros.dtx}{package}}}
+
+\obeyspaces
+\Msg{*************************************************************}
+\Msg{*                                                           *}
+\Msg{* To finish the installation you have to move the following *}
+\Msg{* file into a directory searched by TeX:                    *}
+\Msg{*                                                           *}
+\Msg{*     kimacros.sty                                         *}
+\Msg{*                                                           *}
+\Msg{* To produce the documentation run the file kimacros.dtx   *}
+\Msg{* through LaTeX.                                            *}
+\Msg{*                                                           *}
+\Msg{* Happy TeXing!                                             *}
+\Msg{*                                                           *}
+\Msg{*************************************************************}
+\endgroup
+%</batchfile>
+%<*driver>
+\ProvidesFile{kimacros.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<package>\ProvidesPackage{kimacros}
+%<*package>
+    [2009/01/09 v1.0 .dtx kimacros file]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{kimacros}[2009/01/09]
+\EnableCrossrefs         
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{kimacros.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0}{2009/01/09}{Initial version}
+%
+% \GetFileInfo{kimacros.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+% 
+%
+% \title{The \textsf{kimacros} class\thanks{This document
+%   corresponds to \textsf{kimacros}~\fileversion, dated \filedate.}}
+% \author{Per Unneberg\\ \texttt{per.unneberg@ki.se}}
+%
+% \maketitle
+% \begin{abstract}
+%   \textsf{kimacros} is a collection of macros related to scientific
+%   terms and programs.
+% \end{abstract}
+% \section{Introduction}
+%
+% \textsf{kimacros} is a collection of macros related to scientific
+% terms and programs that I often use in my writings.
+%
+% \section{Usage}
+%
+% The package is loaded via
+% \begin{verbatim}
+% \usepackage{kimacros}
+% \end{verbatim}
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+% First load packages necessary for macros.
+%    \begin{macrocode}
+\RequirePackage{biocon}
+\RequirePackage{xspace}
+%    \end{macrocode}
+
+% In the following sections, macros are presented in categories.
+
+% \subsection{Computer related macros}
+% \label{sec:comp-relat-macr}
+
+% \begin{macro}{\R}
+% \begin{macro}{\Rpackage}
+% \begin{macro}{\Robject}
+% \begin{macro}{\Rclass}
+% \begin{macro}{\Rfunarg}
+% \begin{macro}{\Rfunction}
+% These macros typeset |R| function names, function arguments, package and object.
+%    \begin{macrocode}
+%% R related
+\DeclareRobustCommand{\R}{
+\@ifundefined{xspace}{}{\xspace}
+\texttt{R}\xspace
+}
+%%\newcommand{\R}{\texttt{R}\xspace}
+\newcommand{\Rpackage}[1]{\textit{#1}}
+\newcommand{\Robject}[1]{\texttt{#1}}
+\newcommand{\Rclass}[1]{\textit{#1}}
+\newcommand{\Rfunarg}[1]{\textit{#1}}
+\newcommand{\Rfunction}[1]{\textit{#1}}
+%    \end{macrocode}
+%   
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+
+
+%% Misc computer commands
+% \begin{macro}{\program}
+% \begin{macro}{\mysql}
+% These macros typeset and provide shortcuts to program names.
+%    \begin{macrocode}
+\newcommand{\program}[1]{\texttt{#1}}
+\newcommand{\mysql}{\texttt{mysql}}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+%\subsection{Statistics macros}
+%\label{sec:stats}
+
+% \begin{macro}{\F}
+% \begin{macro}{\p}
+% These macros typeset statistical terms.
+%    \begin{macrocode}
+%% Statistics
+\newcommand{\F}{\emph{F}\xspace}
+\newcommand{\p}{\emph{p}\xspace}
+%    \end{macrocode}
+%   
+% \end{macro}
+% \end{macro}
+
+
+%
+%\subsection{Biology macros}
+%\label{sec:biology}
+
+% \begin{macro}{\threep}
+% \begin{macro}{\fivep}
+% \begin{macro}{\dprime}
+% \begin{macro}{\rsq}
+% These macros typeset biological terms.
+%    \begin{macrocode}
+%% Biology
+\newcommand{\threep}{\ensuremath{3^\prime}\xspace}
+\newcommand{\fivep}{\ensuremath{5^\prime}\xspace}
+\newcommand{\dprime}{D\ensuremath{^\prime}\xspace}
+\newcommand{\rsq}{r\ensuremath{^2}\xspace}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+
+% \begin{macro}{Ce}
+% \begin{macro}{Hs}
+% \begin{macro}{Dr}
+%   These macros are defined via the |biocon| package. They are
+%   typeset with the |\animal| command.
+%    \begin{macrocode}
+%% Biocon animals
+\newanimal{Ce}{genus=Caenorhabditis, epithet=elegans}
+\newanimal{Hs}{genus=Homo, epithet=sapiens}
+\newanimal{Dr}{genus=Danio, epithet=rerio}
+%    \end{macrocode}
+%   
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \Finale
+\endinput
+
+% \endinput
+% Local Variables: 
+% mode: doctex
+% TeX-master: t
+% End: 
