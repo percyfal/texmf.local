@@ -1,3 +1,7 @@
+2009-01-12  Per Unneberg  <per.unneberg@ki.se>
+
+	* kianalysis.dtx: removed natbib package
+
 2009-01-11  Per Unneberg  <per.unneberg@ki.se>
 
 	* kimacros.dtx: Moved VCdatestring here
