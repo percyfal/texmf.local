@@ -1,0 +1,373 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2004 by Per Unneberg <per.unneberg@ki.se>
+% -------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of LaTeX 
+% version 1999/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*batchfile>
+\begingroup
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+
+\usedir{tex/latex/pst-dna}
+
+\preamble
+
+This is a generated file.
+
+Copyright (C) 2009 by Per Unneberg <per.unneberg@ki.se>
+
+This file may be distributed and/or modified under the conditions of
+the LaTeX Project Public License, either version 1.2 of this license
+or (at your option) any later version.  The latest version of this
+license is in:
+
+   http://www.latex-project.org/lppl.txt
+
+and version 1.2 or later is part of all distributions of LaTeX version
+1999/12/01 or later.
+
+\endpreamble
+
+\generate{\file{pst-dna.sty}{\from{pst-dna.dtx}{package}}}
+
+\obeyspaces
+\Msg{*************************************************************}
+\Msg{*                                                           *}
+\Msg{* To finish the installation you have to move the following *}
+\Msg{* file into a directory searched by TeX:                    *}
+\Msg{*                                                           *}
+\Msg{*     pst-dna.sty                                        *}
+\Msg{*                                                           *}
+\Msg{* To produce the documentation run the file pst-dna.dtx  *}
+\Msg{* through LaTeX.                                            *}
+\Msg{*                                                           *}
+\Msg{* Happy TeXing!                                             *}
+\Msg{*                                                           *}
+\Msg{*************************************************************}
+
+\endgroup
+%</batchfile>
+%<*driver>
+\ProvidesFile{pst-dna.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<package>\ProvidesPackage{pst-dna}
+%<*package>
+    [2004/10/04 v1.0 .dtx pst-dna file]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{pst-dna}[2009/01/12]
+\EnableCrossrefs         
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{pst-dna.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0}{2009/01/12}{Initial version}
+%
+% \GetFileInfo{pst-dna.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+% 
+%
+% \title{The \textsf{pst-dna} package\thanks{This document
+%   corresponds to \textsf{pst-dna}~\fileversion, dated \filedate.}}
+% \author{Per Unneberg\\ \texttt{per.unneberg@ki.se}}
+%
+% \maketitle
+%
+% \section{Introduction}
+% \label{sec:introduction}
+%
+% The \textsf{pst-dna} package typesets dna bases and helix. It was
+% initially used for the presentation of my thesis.
+%
+% \section{Usage}
+% \label{sec:usage}
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+% \label{sec:implementation}
+%
+% The package depends on macros in |pstricks| and |multido|.
+%
+%    \begin{macrocode}
+\ifx\PSTricksLoaded\endinput\else\input pstricks.tex\fi
+\ifx\MultidoLoaded\endinput\else\input multido.tex\fi
+\ifx\PSTXKeyLoaded\endinput\else\input pst-xkey \fi
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\RequirePackage{multido}
+\RequirePackage{ifthen}
+\RequirePackage{calc}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\pst@addfams{pst-dna}      
+%    \end{macrocode}
+% 
+%    \begin{macrocode}
+\newif\ifPst@HelixDown
+\define@key[psset]{pst-dna}{HelixDown}[true]{\@nameuse{Pst@HelixDown#1}}
+
+\newif\ifPst@DrawBases
+\define@key[psset]{pst-dna}{DrawBases}[true]{\@nameuse{Pst@DrawBases#1}}
+
+\newif\ifPst@HelixFront
+\define@key[psset]{pst-dna}{HelixFront}[true]{\@nameuse{Pst@HelixFront#1}}
+
+\newif\ifPst@LabelsOn
+\define@key[psset]{pst-dna}{LabelsOn}[false]{\@nameuse{Pst@LabelsOn#1}}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\define@key[psset]{pst-dna}{FrontColor}{\edef\PstFront@Color{#1}}
+\define@key[psset]{pst-dna}{MiddleColor}{\edef\PstMiddle@Color{#1}}
+\define@key[psset]{pst-dna}{BackColor}{\edef\PstBack@Color{#1}}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newrgbcolor{Gray80}{0.2 0.2 0.2}
+\newrgbcolor{Gray50}{0.5 0.5 0.5}
+\newrgbcolor{Gray20}{0.8 0.8 0.8}
+\newrgbcolor{lightgreen}{0.5 1 0.5}
+\newrgbcolor{lightblue}{0.5 0.5 1}
+\newrgbcolor{lightyellow}{1 1 0.5}
+\newrgbcolor{lightred}{1 0.5 0.5}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\ProcessOptions\relax
+\psset{%
+  LabelsOn=false, HelixDown=false, DrawBases=true, HelixFront=true,
+FrontColor=, MiddleColor=, BackColor=}
+
+\catcode`\@11
+\SpecialCoor
+%    \end{macrocode}
+% \begin{macro}{\pyrimidine}
+%    \begin{macrocode}
+\newcommand{\pyrimidine}{
+  \psset{unit=12pt}
+  \pscustom{
+    \moveto(0,0)
+    \rlineto(! 30 cos 30 sin)
+    \rlineto(! 90 cos 90 sin)
+    \rlineto(! 150 cos 150 sin)
+    \rlineto(! 210 cos 210 sin)
+    \rlineto(! 270 cos 270 sin)
+    \rlineto(! 330 cos 330 sin)
+    \closepath
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\purine}
+%    \begin{macrocode}
+\newcommand{\purine}{
+  \psset{unit=12pt}
+  \pscustom{
+    \moveto(0,0)
+    \rlineto(! 30 cos 30 sin)
+    \rlineto(! 90 cos 90 sin)
+    \rlineto(! 150 cos 150 sin)
+    \rlineto(! 210 cos 210 sin)
+    \rlineto(! 270 cos 270 sin)
+    \rlineto(! 330 cos 330 sin)
+    \rlineto(! 30 cos 30 sin)
+    \rlineto(! 342 cos 342 sin)
+    \rlineto(! 54 cos 54 sin)
+    \rlineto(! 128 cos 128 sin)
+    \rlineto(! 198 cos 198 sin)
+    \rlineto(! 270 cos 270 sin)
+    \closepath
+  }
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\adenine}
+%    \begin{macrocode}
+\newcommand{\adenine}{
+  \psset{fillstyle=solid, fillcolor=lightred}
+  \purine
+  \ifPst@LabelsOn
+  \rput[B](! 0 30 sin 1 4 div add){\sffamily\bfseries A}
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\guanine}
+%    \begin{macrocode}
+\newcommand{\guanine}{
+  \psset{fillstyle=solid, fillcolor=lightgreen}
+  \purine
+  \ifPst@LabelsOn
+  \rput[B](! 0 30 sin 1 4 div add){\sffamily\bfseries G}
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\cytosine}
+%    \begin{macrocode}
+\newcommand{\cytosine}{
+  \psset{fillstyle=solid, fillcolor=lightyellow}
+  \pyrimidine
+  \ifPst@LabelsOn
+  \rput[B](! 0 30 sin 1 4 div add){\sffamily\bfseries C}
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\thymine}
+%    \begin{macrocode}
+\newcommand{\thymine}{
+  \psset{fillstyle=solid, fillcolor=lightblue}
+  \pyrimidine
+  \ifPst@LabelsOn
+  \rput[B](! 0 30 sin 1 4 div add){\sffamily\bfseries T}
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\Bhelix}
+%   \begin{macrocode}
+\newcommand\Bhelix{
+  \psset{linewidth=0, fillstyle=gradient}
+  \ifPst@HelixFront
+  \ifx\PstFront@Color\@empty
+  \psset{gradbegin=Gray80}
+  \else
+  \psset{gradbegin=\PstFront@Color}
+  \fi
+  \ifx\PstMiddle@Color\@empty
+  \psset{gradend=Gray50}
+  \else
+  \psset{gradend=\PstMiddle@Color}
+  \fi
+  \else
+  \ifx\PstMiddle@Color\@empty
+  \psset{gradbegin=Gray50}
+  \else
+  \psset{gradbegin=\PstMiddle@Color}
+  \fi
+  \ifx\PstBack@Color\@empty
+  \psset{gradend=Gray20}
+  \else
+  \psset{gradend=\PstBack@Color}
+  \fi
+  \fi
+  
+  \ifPst@HelixDown
+  \pscustom{
+    \psset{unit=1pt}
+    \psplot[plotpoints=180,yunit=100]{0}{180}{x cos}
+    \translate(10,0)
+    \psplot[plotpoints=180,yunit=100]{180}{0}{x cos}
+    \closepath
+  }
+  \else
+  \pscustom{
+    \psset{unit=1pt}
+    \translate(-180,0)
+    \psplot[plotpoints=180,yunit=100]{180}{360}{x cos}
+    \translate(10,0)
+    \psplot[plotpoints=180,yunit=100]{360}{180}{x cos}
+    \closepath
+  }
+  \fi
+}
+%   \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\getbase}
+%    \begin{macrocode}
+\newcommand{\getbase}[1]{
+  \ifthenelse{\equal{#1}{A}}{\adenine}{}%
+  \ifthenelse{\equal{#1}{C}}{\cytosine}{}%
+  \ifthenelse{\equal{#1}{G}}{\guanine}{}%
+  \ifthenelse{\equal{#1}{T}}{\thymine}{}
+}
+%    \end{macrocode}
+%   
+% \end{macro}
+
+% \begin{macro}{\attachupbases}
+%    \begin{macrocode}
+\newcommand{\attachupbases}[4]{
+  \psset{unit=1pt}
+  \rput(-67.5, 20){\getbase{#1}}
+  \rput(-22.5, 60){\getbase{#2}}
+  \rput(22.5, 60){\getbase{#3}}
+  \rput(67.5, 20){\getbase{#4}}
+}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\attachdownbases}
+%    \begin{macrocode}
+\newcommand{\attachdownbases}[4]{
+  \psset{unit=1pt}
+  \rput(-67.5, -20){\getbase{#1}}
+  \rput(-22.5, -60){\getbase{#2}}
+  \rput(22.5, -20){\getbase{#3}}
+  \rput(67.5, -60){\getbase{#4}}
+}
+%    \end{macrocode}
+% \end{macro}
+% \Finale
+\endinput
+
+% \endinput
+% Local Variables: 
+% mode: doctex
+% TeX-master: t
+% End: 
