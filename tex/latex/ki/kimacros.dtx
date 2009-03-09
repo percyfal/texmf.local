@@ -137,6 +137,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %    \begin{macrocode}
 \RequirePackage{biocon}
 \RequirePackage{xspace}
+\RequirePackage{fancyvrb}
 %    \end{macrocode}
 
 % In the following sections, macros are presented in categories.
@@ -167,8 +168,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \end{macro}
 % \end{macro}
 % \end{macro}
-
-
+%
 %% Misc computer commands
 % \begin{macro}{\program}
 % \begin{macro}{\mysql}
@@ -180,6 +180,13 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \end{macro}
 % \end{macro}
 %
+%% Unix/linux command environments
+% \begin{environment}{\bash}
+% The environment \texttt{\bash} is intended to show unix/bash commands.
+%    \begin{macrocode}
+\newenvironment{bash}{}      
+%    \end{macrocode}
+% \end{environment}
 %\subsection{Statistics macros}
 %\label{sec:stats}
 
