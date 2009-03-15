@@ -1,3 +1,7 @@
+2009-03-15  Per Unneberg  <per.unneberg@ki.se>
+
+	* kilecture.dtx: Removed babel
+
 2009-01-12  Per Unneberg  <per.unneberg@ki.se>
 
 	* kianalysis.dtx: removed natbib package
