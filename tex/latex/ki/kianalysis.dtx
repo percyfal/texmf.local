@@ -157,7 +157,27 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \RequirePackage{booktabs}
 %    \end{macrocode}
 %
-% \section{Bugs and problems}
+%
+%
+% \section{Beamer article compatibility}
+% \label{sec:beamerarticlecompatibility}
+%
+% The package \textsf{beamerarticle} allows the creation of an article
+% from a presentation. However, the language environments are
+% hardcoded. Here, I add support for Swedish for various
+% environments. 
+%
+%    \begin{macrocode}
+%      
+\@ifpackageloaded{beamerarticle}{
+\theoremstyle{example}
+\newtheorem{exempel}{Exempel}
+\defbeamertemplate<article>*{block exempel begin}{default}
+{\par\vskip\medskipamount{\noindent\emph{Exempel}}\par\noindent\ignorespaces}
+\defbeamertemplate<article>*{block exempel end}{default}{\vskip\medskipamount}
+}
+%    \end{macrocode}
+% \section{Bugs and  problems} 
 % \label{sec:bugs-and-problems}
 %
 % The package is currently incompatible with |kilecture| due to the

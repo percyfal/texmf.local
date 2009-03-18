@@ -1,5 +1,7 @@
 2009-03-18  Per Unneberg  <per.unneberg@ki.se>
 
+	* kianalysis.dtx: Added support for exempel theorem in beamer article
+
 	* kimacros.dtx: Added support for languages. VCdatestring changes according to language
 
 2009-03-15  Per Unneberg  <per.unneberg@ki.se>
