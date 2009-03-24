@@ -1,3 +1,7 @@
+2009-03-24  Per Unneberg  <per.unneberg@ki.se>
+
+	* kianalysis.dtx: added non-float code
+
 2009-01-12  Per Unneberg  <per.unneberg@ki.se>
 
 	* kianalysis.dtx: removed natbib package
