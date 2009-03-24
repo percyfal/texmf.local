@@ -1,3 +1,7 @@
+2009-03-15  Per Unneberg  <per.unneberg@ki.se>
+
+	* beamerthemeKI.sty: Moved exempel definition to kilecture
+
 2009-01-13  Per Unneberg  <per.unneberg@ki.se>
 
 	* beamerthemeKI.sty: Moved title page template setting here

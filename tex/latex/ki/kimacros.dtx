@@ -82,7 +82,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %</driver>
 % \fi
 %
-% \CheckSum{0}
+% \CheckSum{96}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -138,8 +138,27 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \RequirePackage{biocon}
 \RequirePackage{xspace}
 \RequirePackage{fancyvrb}
+\RequirePackage{ifthen}
+%    \end{macrocode}
+%
+%\subsection{Language options}
+%\label{sec:languageoptions}
+%
+% The language option currently supports swedish and english.
+%    \begin{macrocode}
+\def\ki@language{english}
+\@ifpackageloaded{babel}{
+\iflanguage{english}{\def\ki@language{english}}{}
+\iflanguage{swedish}{\def\ki@language{swedish}}{}}{}
+\DeclareOption{english}{\def\ki@language{english}}
+\DeclareOption{swedish}{\def\ki@language{swedish}}
+\ProcessOptions
 %    \end{macrocode}
 
+%
+% \section{Macros}
+% \label{sec:macros}
+%
 % In the following sections, macros are presented in categories.
 
 % \subsection{Computer related macros}
@@ -154,7 +173,8 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % These macros typeset |R| function names, function arguments, package and object.
 %    \begin{macrocode}
 %% R related
-\newcommand{\R}{\texttt{R}\xspace}
+
+%    \end\newcommand{\R}{\texttt{R}\xspace}
 \newcommand{\Rpackage}[1]{\textit{#1}}
 \newcommand{\Robject}[1]{\texttt{#1}}
 \newcommand{\Rclass}[1]{\textit{#1}}
@@ -251,6 +271,9 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \newcommand{\VCcheckin}{\GITAuthorDate}
 \newcommand{\VCdatestring}[1]%
 [This file is based on version \VCfileversion \ (checkin \VCcheckin)]{#1}
+\ifthenelse{\equal{\ki@language}{swedish}}{
+\renewcommand{\VCdatestring}[1]%
+[Den här filen baseras på version \VCfileversion \ (Checkin \VCcheckin)]{#1}}{}
 %    \end{macrocode}
 %
 

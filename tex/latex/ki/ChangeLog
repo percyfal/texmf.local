@@ -2,6 +2,16 @@
 
 	* kianalysis.dtx: added non-float code
 
+2009-03-18  Per Unneberg  <per.unneberg@ki.se>
+
+	* kianalysis.dtx: Added support for exempel theorem in beamer article
+
+	* kimacros.dtx: Added support for languages. VCdatestring changes according to language
+
+2009-03-15  Per Unneberg  <per.unneberg@ki.se>
+
+	* kilecture.dtx: Removed babel
+
 2009-01-12  Per Unneberg  <per.unneberg@ki.se>
 
 	* kianalysis.dtx: removed natbib package
