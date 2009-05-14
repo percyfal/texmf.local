@@ -1,3 +1,7 @@
+2009-05-14  Per Unneberg  <per.unneberg@ki.se>
+
+	* kilecture.dtx: Added koncept theorem environment for Swedish lecturing.
+
 2009-03-24  Per Unneberg  <per.unneberg@ki.se>
 
 	* kianalysis.dtx: added non-float code
