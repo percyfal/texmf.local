@@ -1,5 +1,7 @@
 2009-05-21  Per Unneberg  <per.unneberg@ki.se>
 
+	* kilecture.dtx: Added ki logo to front page
+
 	* kimacros.dtx: Added support for listcode and code
 
 	* kianalysis.dtx: added possibility to load kilecture and

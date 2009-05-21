@@ -67,7 +67,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{kilecture}
 %<*class>
-    [2009/01/11 v1.0 .dtx kilecture file]
+    [2009/05/21 v1.1 .dtx kilecture file]
 %</class>
 %
 %<*driver>
@@ -81,7 +81,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %</driver>
 % \fi
 %
-% \CheckSum{13}
+% \CheckSum{19}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -101,6 +101,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %
 %
 % \changes{v1.0}{2009/01/11}{Initial version}
+% \changes{v1.1}{2009/05/21}{Added title page logo}
 %
 % \GetFileInfo{kilecture.dtx}
 %
@@ -146,6 +147,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[OT1]{fontenc}
 \RequirePackage{hyperref}
+\RequirePackage{pgf}
 %    \end{macrocode}
 % \subsection{Preset configuration}
 % \label{sec:preset-configuration}
@@ -155,7 +157,10 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %    \begin{macrocode}
 \usetheme{KI}
 \def\newblock{\hskip .11em plus .33em minus .07em}
+\pgfdeclareimage[height=2cm]{logoimage}{KI-Logo_cmyk}
+\pgfdeclareimage{logoimagevert}{KI-Logo_vert_cmyk}
 \setbeamertemplate{title page}[default][left]
+\addtobeamertemplate{title page}{\hfill\pgfuseimage{logoimage}}{}
 \theoremstyle{example}
 \newtheorem{exempel}{Exempel}
 \theoremstyle{definition}
