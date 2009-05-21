@@ -1,3 +1,7 @@
+2009-05-20  Per Unneberg  <per.unneberg@ki.se>
+
+	* beamerouterthemeKIfootline.sty: Changed umbc to KI identifiers
+
 2009-03-18  Per Unneberg  <per.unneberg@ki.se>
 
 	* beamerouterthemeKIfootline.sty: Added section and subsection indicator
