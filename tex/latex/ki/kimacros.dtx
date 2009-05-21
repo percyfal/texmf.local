@@ -82,7 +82,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %</driver>
 % \fi
 %
-% \CheckSum{97}
+% \CheckSum{105}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -102,6 +102,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %
 %
 % \changes{v1.0}{2009/01/09}{Initial version}
+% \changes{v1.1}{2009/05/21}{Added support for code and listcode}
 %
 % \GetFileInfo{kimacros.dtx}
 %
@@ -189,7 +190,9 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \end{macro}
 % \end{macro}
 %
-%% Misc computer commands
+%\subsection{Miscallaneous computer commands}
+%\label{sec:misccompcom}
+%
 % \begin{macro}{\program}
 % \begin{macro}{\mysql}
 % These macros typeset and provide shortcuts to program names.
@@ -200,7 +203,23 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \end{macro}
 % \end{macro}
 %
-%% Unix/linux command environments
+% I use the \textsf{fancyvrb} package to typeset code listing environments.
+%    \begin{macrocode}
+\DefineVerbatimEnvironment%
+{code}{Verbatim}{frame=lines, fontsize=\footnotesize}
+%    \end{macrocode}
+%
+% \begin{macro}{\listcode}
+% Similarly, I define a |list| to list code.
+%    \begin{macrocode}
+\newenvironment{listcode}{\begin{list}{}{\setlength{\itemindent}{-1em}\ttfamily}}{\end{list}}
+%    \end{macrocode}
+% 
+% \end{macro}
+%
+%\subsection{Unix/linux command environments}
+%\label{sec:unixcommands}
+%
 % \begin{environment}{\bash}
 % The environment \texttt{\bash} is intended to show unix/bash commands.
 %    \begin{macrocode}
