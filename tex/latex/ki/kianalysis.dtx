@@ -67,12 +67,12 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{kianalysis}
 %<*package>
-    [2009/05/21 v1.1 .dtx kianalysis file]
+    [2009/05/22 v1.1.1 .dtx kianalysis file]
 %</package>
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{kianalysis}[2009/01/11]
+\usepackage{kianalysis}[2009/05/22]
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
@@ -104,8 +104,9 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %
 %
 % \changes{v1.0}{2009/01/11}{Initial version}
-% \changes{v1.1}{2009/05/21}{Added support for subfig package used together with kilecture
+% \changes{v1.1}{2009/05/21}{Added support for |subfig| package used together with |kilecture|
 % Uses \@ifclassloaded}
+% \changes{v1.1.1}{2009/05/22}{Modified support. Now takes care of |subfig| and |paralist| with |kilecture|}
 %
 % \GetFileInfo{kianalysis.dtx}
 %
@@ -149,7 +150,6 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \RequirePackage{pgf}
 \RequirePackage{url}
 \RequirePackage{fancyvrb}
-\RequirePackage{paralist}
 \RequirePackage{amsmath}
 \RequirePackage[labelfont=bf, size=small]{caption}
 \RequirePackage{rotating}
@@ -188,9 +188,9 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \section{Beamer compatibility}
 % \label{sec:beamercompatibility}
 %
-% It is currently impossible to simultaneously load \textsf{kilecture}
-% and \textsf{kianalysis}. The conflict is between \textsf{beamer} and
-% \textsf{subfig}. Here, I make sure \textsf{subfig} is loaded only if \textsf{kilecture} is not loaded. 
+% There is a conflict between |beamer| and |paralist| and |subfig|.
+% Therefore, I make sure that these packages are loaded only if
+% |kilecture| is not loaded.
 %
 %    \begin{macrocode}
 %      
@@ -198,15 +198,12 @@ and version 1.2 or later is part of all distributions of LaTeX version
 }%
 {
 \RequirePackage[labelformat=empty]{subfig}
+\RequirePackage{paralist}
 }
 %    \end{macrocode}
 % \section{Bugs and  problems} 
-
 % \label{sec:bugs-and-problems}
 %
-% The package is currently incompatible with |kilecture| due to the
-% use of the |caption| package which in turn is incompatible with the
-% |beamer| class.
 %
 % \Finale
 \endinput
