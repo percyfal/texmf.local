@@ -65,12 +65,12 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{kimacros}
 %<*package>
-    [2009/05/21 v1.1 .dtx kimacros file]
+    [2009/07/17 v1.11 .dtx kimacros file]
 %</package>
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{kimacros}[2009/01/09]
+\usepackage{kimacros}[2009/07/17]
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
@@ -82,7 +82,9 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %</driver>
 % \fi
 %
-% \CheckSum{105}
+%
+%
+% \CheckSum{109}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -103,6 +105,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %
 % \changes{v1.0}{2009/01/09}{Initial version}
 % \changes{v1.1}{2009/05/21}{Added support for code and listcode}
+% \changes{v1.11}{2009/07/17}{Added \emph{q}-value}
 %
 % \GetFileInfo{kimacros.dtx}
 %
@@ -231,16 +234,20 @@ and version 1.2 or later is part of all distributions of LaTeX version
 
 % \begin{macro}{\F}
 % \begin{macro}{\p}
+% \begin{macro}{\q}
+%   
+% 
 % These macros typeset statistical terms.
 %    \begin{macrocode}
 %% Statistics
 \newcommand{\F}{\emph{F}\xspace}
 \newcommand{\p}{\emph{p}\xspace}
+\newcommand{\q}{\emph{p}\xspace}
 %    \end{macrocode}
 %   
 % \end{macro}
 % \end{macro}
-
+% \end{macro}
 
 %
 %\subsection{Biology macros}
