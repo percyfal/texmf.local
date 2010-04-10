@@ -1,3 +1,7 @@
+2010-04-10  Per Unneberg  <per.unneberg@ki.se>
+
+	* kianalysis.dtx: Changed erroneous option to caption
+
 2009-07-21  Per Unneberg  <per.unneberg@ki.se>
 
 	* kimacros.dtx: Added \R
