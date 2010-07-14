@@ -16,76 +16,6 @@
 % \fi
 %
 % \iffalse
-%<*batchfile>
-\begingroup
-\input docstrip.tex
-\keepsilent
-\askforoverwritefalse
-
-\usedir{tex/latex/kiletter}
-
-\preamble
-
-This is a generated file.
-
-Copyright (C) 2010 by Per Unneberg <per.unneberg@ki.se>
-
-This file may be distributed and/or modified under the conditions of
-the LaTeX Project Public License, either version 1.2 of this license
-or (at your option) any later version.  The latest version of this
-license is in:
-
-   http://www.latex-project.org/lppl.txt
-
-and version 1.2 or later is part of all distributions of LaTeX version
-1999/12/01 or later.
-
-\endpreamble
-
-\generate{%
-  \file{ki-brev.cls}{\from{kiletter.dtx}{class,swedish}}
-  \file{ki-letter.cls}{\from{kiletter.dtx}{class,english}}
-  \file{exempelbrev.tex}{\from{kiletter.dtx}{sample,swedish}}
-  \file{sample-letter.tex}{\from{kiletter.dtx}{sample,english}}
-}
-
-\obeyspaces
-\Msg{*************************************************************}
-\Msg{*                                                           *}
-\Msg{* To finish the installation you have to move the following *}
-\Msg{* files into a directory searched by TeX:                   *}
-\Msg{*                                                           *}
-\Msg{*     ki-letter.cls                                         *}
-\Msg{*     ki-brev.cls                                           *}
-\Msg{*                                                           *}
-\Msg{* To produce the documentation run the file kiletter.dtx    *}
-\Msg{* through LaTeX.                                            *}
-\Msg{*                                                           *}
-\Msg{* Happy TeXing!                                             *}
-\Msg{*                                                           *}
-\Msg{*************************************************************}
-
-\endgroup
-%</batchfile>
-
-%<*driver>
-\ProvidesFile{kiletter.dtx}
-%</driver>
-%<class>\NeedsTeXFormat{LaTeX2e}[2000/01/01]
-%<class>\ProvidesClass{ki-brev}
-%<class>\ProvidesClass{ki-letter}
-%<*class>
-              [2010/07/14 v1.0 KI letters]
-%</class>
-%<*driver>
-\documentclass{ltxdoc}
-\EnableCrossrefs         
-\CodelineIndex
-\RecordChanges
-\begin{document}
-  \DocInput{kiletter.dtx}
-\end{document}
-%</driver>
 % \fi
 %
 % \CheckSum{1016}
@@ -158,7 +88,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % User data
 %    \begin{macrocode}
 \name{Lorem Ipsum}
-\email{lorem@ki.se}
+\email{per.unneberg@ki.se}
 \web{http://www.ki.se}
 \signature[3]{Lorem Ipsum \and Dolor Sit\\Amet sed \and Diam Nonummy}
 %    \end{macrocode}
@@ -342,29 +272,29 @@ eleifend.
 }%
 \fi}\\
 \makebox[0pt]{\rule{180mm}{0.4pt}}\\
-\makebox[100pt]{\strut
-%<swedish> Postadress
-%<english> Postal address
+\parbox[t]{124pt}{\strut
+%<swedish> Postadress\\
+%<english> Postal address\\
 \fromaddress
 }
-\makebox[100pt]{\strut
-%<swedish> Besöksadress
-%<english> Visiting address
+\parbox[t]{124pt}{\strut
+%<swedish> Besöksadress\\
+%<english> Visiting address\\
 \fromlocation
 }
-\makebox[100pt]{\strut
-%<swedish> Telefon
-%<english> Telephone
+\parbox[t]{100pt}{\strut
+%<swedish> Telefon\\
+%<english> Telephone\\
 \telephonenum
         }
-        \makebox[100pt]{\strut
-%<swedish>E-Post
-%<english>E-Mail
+        \parbox[t]{100pt}{\strut
+%<swedish>E-Post\\
+%<english>E-Mail\\
           \@kibrev@email
         }\\
-\makebox[0pt]{\strut
-%<english>Org. number 202100 2973
-%<swedish>Org. nummer 202100 2973
+\makebox[\textwidth]{\strut
+%<english>Org. number 202100 2973\hfill
+%<swedish>Org. nummer 202100 2973\hfill
 }
       \end{center}}\fi}
   \let\@evenfoot\@oddfoot}
@@ -421,7 +351,7 @@ eleifend.
 %    \begin{macrocode}
 \address[\@kibrev@loc\\SE-171 77~Stockholm\\Sweden]%
         {\fromlocation\\SE-171 77~Stockholm\\Sweden}
-\location[KI]{Nobels~väg~5, Solna}
+\location[KI]{Nobels~v\"{a}g~5, Solna}
 %<*swedish>
 \telephone{08~-~524~800~00}
 \telefax{08~-~31~11~01}
@@ -528,32 +458,38 @@ eleifend.
 % The regular KI letter head. 
 %    \begin{macrocode}
 \newcommand*{\@kibrev@KI}{%
-  \put(5,-105){\line(1,0){2}}
-  \put(5,-210){\line(1,0){2}}
-  \put(25,-80){\makebox(0,0)[lb]{%
-      \begin{tabular}{@{}l}\toname\\\toaddress\end{tabular}}}}
+  %\put(5,-105){\line(1,0){2}}
+  %\put(5,-210){\line(1,0){2}}
+  %\put(25,-80){\makebox(0,0)[lb]{%
+  %    \begin{tabular}{@{}l}\toname\\\toaddress\end{tabular}}}
+  \put(60, -70){\makebox(0,0)[lb]{%
+    \begin{tabular}{@{}l}\toname\\\toaddress\end{tabular}}}
+  \put(0, -70){\makebox(0,0)[lb]{%
+    \begin{tabular}{@{}l}\fromname\\\fromaddress\end{tabular}}}
+  }
 %    \end{macrocode}
 % How to make address appear in window...
 %    \begin{macrocode}
 \newcommand*{\@kibrev@SS}{%
-  \put(5,-105){\line(1,0){2}}
-  \put(5,-210){\line(1,0){2}}
+  % \put(5,-105){\line(1,0){2}}
+  % \put(5,-210){\line(1,0){2}}
   \put(120,-64){\makebox(0,22)[l]{%
       \begin{tabular}{@{}l}\toname\\\toaddress\end{tabular}}}}
 \newcommand*{\opening}[1]{%
-  \centerline{%
+  %\centerline{%
     \setlength{\unitlength}{1mm}
-    \begin{picture}(0,55)(105,-85)
+    \begin{picture}(0,55)(0,-80)
       \if@kibrev@head
-        \put(105,-7){\makebox(0,0)[t]{%
-            \scalebox{0.192}{\includegraphics{\@kibrev@logo}}}}
+        \put(15,-45){\makebox(0,0)[b]{%
+            \scalebox{0.392}{\includegraphics{\@kibrev@logo}}}}
       \fi
       \@nameuse{@kibrev@\@kibrev@layout}
-      \put(120,-80){\makebox(0,0)[lb]{%
+      \put(120,-25){\makebox(0,0)[lt]{%
           \begin{tabular}{@{}l}\@kibrev@dnr\end{tabular}}}
-      \put(120,-85){\makebox(0,0)[lt]{%
+      \put(60,-25){\makebox(0,0)[lt]{%
           \begin{tabular}{@{}l}\@date\end{tabular}}}
-    \end{picture}}
+    \end{picture}
+  %}
   \vspace*{5mm}
   #1\par\nobreak}
 \newcommand{\closing}[1]{\par\nobreak\vspace{\parskip}%
@@ -728,11 +664,23 @@ eleifend.
 \onecolumn
 %</class>
 %    \end{macrocode}
-
-
-% 
 %
-% \Finale
+%
+% \section{Driver file}
+% \label{sec:driver}
+%
+%    \begin{macrocode}
+%<*driver>
+\documentclass{ltxdoc}
+\EnableCrossrefs         
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{kiletter.dtx}
+\end{document}
+%</driver>
+%    \end{macrocode}
+%
 \endinput
 
 % Local Variables: 
