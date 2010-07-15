@@ -219,10 +219,10 @@ eleifend.
 \input{size1\@ptsize.clo}
 \if@twoside
 \geometry{a4paper,twoside,nohead,footskip=10mm,includefoot,
-  left=25mm,right=25mm,top=30mm,bottom=12mm}
+  left=25mm,right=25mm,top=30mm,bottom=28mm}
 \else
 \geometry{a4paper,nohead,footskip=10mm,includefoot,
-  left=25mm,right=25mm,top=30mm,bottom=12mm}
+  left=25mm,right=25mm,top=30mm,bottom=28mm}
 \fi
 \ifpdf
 %<class> \newcommand{\@kibrev@default@logo}{KI-Logo_cmyk}
@@ -272,24 +272,24 @@ eleifend.
 }%
 \fi}\\
 \makebox[0pt]{\rule{180mm}{0.4pt}}\\
-\parbox[t]{124pt}{\strut
-%<swedish> Postadress\\
-%<english> Postal address\\
+\parbox[t]{144pt}{\strut
+%<swedish> \textbf{Postadress}\\
+%<english> \textbf{Postal address}\\
 \fromaddress
 }
-\parbox[t]{124pt}{\strut
-%<swedish> Besöksadress\\
-%<english> Visiting address\\
+\parbox[t]{144pt}{\strut
+%<swedish> \textbf{Besöksadress}\\
+%<english> \textbf{Visiting address}\\
 \fromlocation
 }
-\parbox[t]{100pt}{\strut
-%<swedish> Telefon\\
-%<english> Telephone\\
+\parbox[t]{80pt}{\strut
+%<swedish> \textbf{Telefon}\\
+%<english> \textbf{Telephone}\\
 \telephonenum
         }
-        \parbox[t]{100pt}{\strut
-%<swedish>E-Post\\
-%<english>E-Mail\\
+        \parbox[t]{80pt}{\strut
+%<swedish>\textbf{E-Post}\\
+%<english>\textbf{E-Mail}\\
           \@kibrev@email
         }\\
 \makebox[\textwidth]{\strut
