@@ -1,3 +1,7 @@
+2011-01-10  Per Unneberg  <per.unneberg@ki.se>
+
+	* kianalysis.dtx: Added support for subfig and paralist with beamer
+
 2010-07-14  Per Unneberg  <per.unneberg@ki.se>
 
 	* kiletter.dtx: Updated. Strange formatting of figures.

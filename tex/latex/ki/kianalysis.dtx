@@ -107,7 +107,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \changes{v1.1}{2009/05/21}{Added support for |subfig| package used together with |kilecture|
 % Uses \@ifclassloaded}
 % \changes{v1.1.1}{2009/05/22}{Modified support. Now takes care of |subfig| and |paralist| with |kilecture|}
-%
+% \changes{v1.1.2}{2011/01/10}{Added support for |subfig| and |paralist| with |beamer|}
 % \GetFileInfo{kianalysis.dtx}
 %
 % \DoNotIndex{\newcommand,\newenvironment}
@@ -190,7 +190,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %
 % There is a conflict between |beamer| and |paralist| and |subfig|.
 % Therefore, I make sure that these packages are loaded only if
-% |kilecture| is not loaded.
+% |kilecture| or |beamer| is not loaded.
 %
 %    \begin{macrocode}
 %      
@@ -200,6 +200,13 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \RequirePackage[labelformat=empty]{subfig}
 \RequirePackage{paralist}
 }
+\@ifclassloaded{beamer}{
+}%
+{
+\RequirePackage[labelformat=empty]{subfig}
+\RequirePackage{paralist}
+}
+
 %    \end{macrocode}
 % \section{Bugs and  problems} 
 % \label{sec:bugs-and-problems}
