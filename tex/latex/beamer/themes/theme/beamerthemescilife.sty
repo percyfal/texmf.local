@@ -1,0 +1,25 @@
+\ProvidesPackage{beamerthemescilife}[2011/08/18 v1.0 for beamer 3.01]
+\mode<presentation>
+
+\usecolortheme[RGB={60,60,60}]{structure}
+
+\setbeamercolor{scilife@decorations}{parent=palette primary}
+{\usebeamercolor{scilife@decorations}}
+
+
+\def\newblock{\hskip .11em plus .33em minus .07em}
+\setbeamertemplate{title page}[default][left]
+\defbeamertemplate{footline}{title slide}{%
+\relax
+}
+
+% Here we load beamerouterthemescilifefootline but then we
+% redefine \setbeamertemplate to add a horizontal separator bar.
+\useoutertheme{scilifefootline}
+\setbeamertemplate{footline}[text line]{%
+  \vbox{%
+    \insertvrule{2.0pt}{scilife@decorations.fg}%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{scilife@decorations}%
+            \Tiny\hspace*{4mm}\scilife@footline\hspace{4mm}
+    \end{beamercolorbox}}}
+\mode<all>
