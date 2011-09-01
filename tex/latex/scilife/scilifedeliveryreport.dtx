@@ -42,7 +42,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 
 \endpreamble
 
-\generate{\file{scilifedeliveryreport.sty}{\from{scilifedeliveryreport.dtx}{package}}}
+\generate{\file{scilifedeliveryreport.cls}{\from{scilifedeliveryreport.dtx}{class}}}
 
 \obeyspaces
 \Msg{*************************************************************}
@@ -50,9 +50,9 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \Msg{* To finish the installation you have to move the following *}
 \Msg{* file into a directory searched by TeX:                    *}
 \Msg{*                                                           *}
-\Msg{*     scilifedeliveryreport.sty                                        *}
+\Msg{*     scilifedeliveryreport.cls                                         *}
 \Msg{*                                                           *}
-\Msg{* To produce the documentation run the file scilifedeliveryreport.dtx  *}
+\Msg{* To produce the documentation run the file scilifedeliveryreport.dtx   *}
 \Msg{* through LaTeX.                                            *}
 \Msg{*                                                           *}
 \Msg{* Happy TeXing!                                             *}
@@ -64,27 +64,24 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %<*driver>
 \ProvidesFile{scilifedeliveryreport.dtx}
 %</driver>
-%<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
-%<package>\ProvidesPackage{scilifedeliveryreport}
-%<*package>
+%<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<class>\ProvidesClass{scilifedeliveryreport}
+%<*class>
     [2011/09/01 v1.0 .dtx scilifedeliveryreport file]
-%</package>
+%</class>
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{scilifedeliveryreport}[2011/09/01]
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
 \begin{document}
   \DocInput{scilifedeliveryreport.dtx}
-  \PrintChanges
-  \PrintIndex
 \end{document}
 %</driver>
 % \fi
 %
-% \CheckSum{31}
+% \CheckSum{0}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -110,7 +107,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \DoNotIndex{\newcommand,\newenvironment}
 % 
 %
-% \title{The \textsf{scilifedeliveryreport} package\thanks{This document
+% \title{The \textsf{scilifedeliveryreport} class\thanks{This document
 %   corresponds to \textsf{scilifedeliveryreport}~\fileversion, dated \filedate.}}
 % \author{Per Unneberg\\ \texttt{per.unneberg@scilifelab.se}}
 %
@@ -169,7 +166,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
   {0mm}%
   {-\baselineskip}%
   {0.5\baselineskip}%
-  {\normalfont\large\color{Cerulean}}%
+  {\bfseries\large\color{Cerulean}}%
 }
 \renewcommand{\subsection}{\@startsection
   {subsection}%
@@ -177,20 +174,21 @@ and version 1.2 or later is part of all distributions of LaTeX version
   {0mm}%
   {-\baselineskip}%
   {0.5\baselineskip}%
-  {\normalfont\normalsize\color{Cerulean}}%
+  {\bfseries\normalsize\color{Cerulean}}%
 }
 \renewcommand{\subsubsection}{\@startsection
   {subsubsection}%
-  {2}%
+  {3}%
   {0mm}%
   {-\baselineskip}%
   {0.5\baselineskip}%
-  {\normalfont\small\color{Cerulean}}%
+  {\bfseries\small\color{Cerulean}}%
 }
+
 %    \end{macrocode}
-%
 % \Finale
 \endinput
+
 
 % \endinput
 % Local Variables: 
