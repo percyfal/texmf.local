@@ -81,7 +81,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %</driver>
 % \fi
 %
-% \CheckSum{0}
+% \CheckSum{142}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -114,20 +114,20 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \maketitle
 %
 % \begin{abstract}
-%   \textsf{scilifedeliveryreport} is a style file for Science for
-%   Life Laboratory delivery reports.
+%   \textsf{scilifedeliveryreport} is a \LaTeX document class for
+%   Science for Life Laboratory delivery reports.
 % \end{abstract}
 %
 % \section{Introduction}
 %
-% \textsf{scilifedeliveryreport} is a style file for Science for Life
-% Laboratory delivery reports. 
+% \textsf{scilifedeliveryreport} is a \LaTeX document class for
+% Science for Life Laboratory delivery reports.
 %
 % \section{Usage}
 %
 % The package is loaded via 
 % \begin{verbatim}
-% \usepackage{scilifedeliveryreport}
+% \documentclass{scilifedeliveryreport}
 % \end{verbatim}
 %
 %
@@ -135,6 +135,11 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %
 % \section{Implementation}
 %
+% The class is derived from the |article| package.
+%    \begin{macrocode}
+\LoadClassWithOptions{article}
+%    \end{macrocode}
+
 % Required packages are loaded first. Note that the reports are
 % written in English, which is why the user cannot modify the |babel|
 % options.
@@ -144,17 +149,62 @@ and version 1.2 or later is part of all distributions of LaTeX version
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[english]{babel}
 \RequirePackage[usenames, dvipsnames]{color}
-\RequirePackage{geometry}
+\RequirePackage[a4paper, textwidth=6.5in, textheight=10in, marginparsep=7pt, marginparwidth=.6in]{geometry}
 %    \end{macrocode}
 %
-%
-% \subsection{Page layout}
-% 
-% The page layout is set with the |geometry| package.
+% \subsection{Title format}
 %    \begin{macrocode}
-\geometry{a4paper, textwidth=6.5in, textheight=10in,
-  marginparsep=7pt, marginparwidth=.6in}
+%      
+\renewcommand\maketitle{
+\par
+  \begingroup
+    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+    \def\@makefnmark{\rlap{\@textsuperscript{\normalfont\@thefnmark}}}%
+    \long\def\@makefntext##1{\parindent 1em\noindent
+            \hb@xt@1.8em{%
+                \hss\@textsuperscript{\normalfont\@thefnmark}}##1}%
+    \if@twocolumn
+      \ifnum \col@number=\@ne
+        \@scilifetitle
+      \else
+        \twocolumn[\@scilifetitle]%
+      \fi
+    \else
+      \newpage
+      \global\@topnum\z@   % Prevents figures from going at top of page.
+      \@scilifetitle
+    \fi
+    \thispagestyle{plain}\@thanks
+  \endgroup
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\maketitle\relax
+  \global\let\@scilifetitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+\def\@scilifetitle{%
+  \newpage
+  \null
+  \vskip 2em%
+  \begin{center}%
+  \let \footnote \thanks
+    {\LARGE \bfseries \color{Blue} \@title\par}%
+    \vskip 1.5em%
+    {\large \bfseries \color{Blue} \@date}%
+  \end{center}%
+  \par
+  \vskip 1.5em}
+\fi
+
 %    \end{macrocode}
+%
 %
 % \subsection{Section formats}
 % 
