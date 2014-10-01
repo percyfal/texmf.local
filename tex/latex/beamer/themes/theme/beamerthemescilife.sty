@@ -1,17 +1,20 @@
-\ProvidesPackage{beamerthemescilife}[2011/08/18 v1.0 for beamer 3.01]
+\ProvidesPackage{beamerthemescilife}[2014/10/01 v1.1 for beamer 3.01]
 \mode<presentation>
 
-\usecolortheme[RGB={60,60,60}]{structure}
+\RequirePackage{tikz}
 
-\setbeamercolor{scilife@decorations}{parent=palette primary}
-{\usebeamercolor{scilife@decorations}}
+% Settings
+\usecolortheme{scilife}
+\useinnertheme{scilife}
+\useoutertheme{scilife}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[dash]
+\setbeamertemplate{blocks}[rounded][shadow=false]
 
 
-\def\newblock{\hskip .11em plus .33em minus .07em}
-\setbeamertemplate{title page}[default][left]
-\defbeamertemplate{footline}{title slide}{%
-\relax
-}
+% Setup fonts
+\usefonttheme{scilife}
 
 % Here we load beamerouterthemescilifefootline but then we
 % redefine \setbeamertemplate to add a horizontal separator bar.
