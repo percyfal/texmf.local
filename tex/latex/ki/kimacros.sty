@@ -1,0 +1,82 @@
+%%
+%% This is file `kimacros.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% kimacros.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2009 by Per Unneberg <per.unneberg@ki.se>
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{kimacros}
+    [2009/07/17 v1.11 .dtx kimacros file]
+\RequirePackage{biocon}
+\RequirePackage{xspace}
+\RequirePackage{fancyvrb}
+\RequirePackage{ifthen}
+\def\ki@language{english}
+\@ifpackageloaded{babel}{
+\iflanguage{english}{\def\ki@language{english}}{}
+\iflanguage{swedish}{\def\ki@language{swedish}}{}}{}
+\DeclareOption{english}{\def\ki@language{english}}
+\DeclareOption{swedish}{\def\ki@language{swedish}}
+\ProcessOptions
+
+
+
+%% R related
+
+\newcommand{\R}{\texttt{R}\xspace}
+\newcommand{\Rpackage}[1]{\textit{#1}}
+\newcommand{\Robject}[1]{\texttt{#1}}
+\newcommand{\Rclass}[1]{\textit{#1}}
+\newcommand{\Rfunarg}[1]{\textit{#1}}
+\newcommand{\Rfunction}[1]{\textit{#1}}
+\newcommand{\program}[1]{\texttt{#1}}
+\newcommand{\mysql}{\texttt{mysql}}
+\DefineVerbatimEnvironment%
+{code}{Verbatim}{frame=lines, fontsize=\footnotesize}
+\newenvironment{listcode}{\begin{list}{}{\setlength{\itemindent}{-1em}\ttfamily}}{\end{list}}
+\newenvironment{bash}{}
+
+%% Statistics
+\newcommand{\F}{\emph{F}\xspace}
+\newcommand{\p}{\emph{p}\xspace}
+\newcommand{\q}{\emph{p}\xspace}
+
+
+%% Biology
+\newcommand{\threep}{\ensuremath{3^\prime}\xspace}
+\newcommand{\fivep}{\ensuremath{5^\prime}\xspace}
+\newcommand{\dprime}{D\ensuremath{^\prime}\xspace}
+\newcommand{\rsq}{r\ensuremath{^2}\xspace}
+
+%% Biocon animals
+\newanimal{Ce}{genus=Caenorhabditis, epithet=elegans}
+\newanimal{Hs}{genus=Homo, epithet=sapiens}
+\newanimal{Dr}{genus=Danio, epithet=rerio}
+\newanimal{Mm}{genus=Mus, epithet=musculus}
+\newcommand{\VCfileversion}{\GITAbrHash}
+\newcommand{\VCcheckin}{\GITAuthorDate}
+\newcommand{\VCdatestring}[1]%
+[This file is based on version \VCfileversion \ (checkin \VCcheckin)]{#1}
+\ifthenelse{\equal{\ki@language}{swedish}}{
+\renewcommand{\VCdatestring}[1]%
+[Den här filen baseras på version \VCfileversion \ (Checkin \VCcheckin)]{#1}}{}
+
+\endinput
+%%
+%% End of file `kimacros.sty'.

@@ -1,0 +1,76 @@
+%%
+%% This is file `kianalysis.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% kianalysis.dtx  (with options: `package')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2009 by Per Unneberg <per.unneberg@ki.se>
+%% 
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.2 of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.2 or later is part of all distributions of LaTeX version
+%% 1999/12/01 or later.
+%% 
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{kianalysis}
+    [2009/05/22 v1.1.1 .dtx kianalysis file]
+\RequirePackage{keyval}
+\RequirePackage{ifthen}
+
+\RequirePackage[np]{numprint}
+\RequirePackage{graphicx}
+\RequirePackage[OT1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{hyperref}
+\RequirePackage{pgf}
+\RequirePackage{url}
+\RequirePackage{fancyvrb}
+\RequirePackage{amsmath}
+\RequirePackage[labelfont=bf, font=small]{caption}
+\RequirePackage{rotating}
+\RequirePackage{amsfonts}
+\RequirePackage{booktabs}
+
+
+
+ %% Floats - from http://mintaka.sdsu.edu/GF/bibliog/latex/floats.html
+ % General parameters, for ALL pages:
+\renewcommand{\topfraction}{0.9} % max fraction of floats at top
+\renewcommand{\bottomfraction}{0.8} % max fraction of floats at bottom
+ % Parameters for TEXT pages (not float pages):
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}     % 2 may work better
+\setcounter{dbltopnumber}{2}    % for 2-column pages
+\renewcommand{\dbltopfraction}{0.9} % fit big float above 2-col. text
+\renewcommand{\textfraction}{0.07} % allow minimal text w. figs
+ % Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.7} % require fuller float pages
+ % N.B.: floatpagefraction MUST be less than topfraction !!
+\renewcommand{\dblfloatpagefraction}{0.7} % require fuller float pages
+
+\@ifclassloaded{kilecture}{
+}%
+{
+\RequirePackage[labelformat=empty]{subfig}
+\RequirePackage{paralist}
+}
+\@ifclassloaded{beamer}{
+}%
+{
+\RequirePackage[labelformat=empty]{subfig}
+\RequirePackage{paralist}
+}
+
+\endinput
+%%
+%% End of file `kianalysis.sty'.
