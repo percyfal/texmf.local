@@ -2,14 +2,7 @@
 
 \mode<presentation>
 
-\pgfdeclareimage[height=1cm]{logoimage}{scilifelaborange}
-\setbeamertemplate{title page}[default][left]
-
-% Don't do any footline on title slide
-\defbeamertemplate{footline}{title slide}{%
-\relax
-}
-
+\usecolortheme[RGB={60,60,60}]{structure}
 
 % the default contents of footline
 \newcommand{\scilife@footline}{%
@@ -18,11 +11,16 @@
   \hspace{1cm}
   \insertframenumber/\inserttotalframenumber}
 
-\setbeamertemplate{footline}{
-\usebeamerfont{structure}
-\begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{scilife@ftcolor}%
-  \Tiny\hspace*{4mm}\scilife@footline\hspace{4mm}
-\end{beamercolorbox}}
+\setbeamercolor{scilife@ftcolor}{parent=palette secondary}
+
+\setbeamertemplate{footline}{%
+  \usebeamerfont{structure}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex]{scilife@ftcolor}%
+    \Tiny\hspace*{4mm}\scilife@footline\hspace{4mm}
+  \end{beamercolorbox}}
+
+% The user can override the default \umbc@footline by \setfootline{whatever}
+\newcommand{\setfootline}[1]{\renewcommand{\scilife@footline}{#1}}
 
 % don't show navigation buttons
 \setbeamertemplate{navigation symbols}{}
