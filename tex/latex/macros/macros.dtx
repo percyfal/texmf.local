@@ -1,0 +1,249 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2014 by Per Unneberg <per.unneberg@scilifelab.se>
+% -------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of LaTeX 
+% version 1999/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*batchfile>
+\begingroup
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+
+\usedir{tex/latex/macros}
+
+\preamble
+
+This is a generated file.
+
+Copyright (C) 2014 by Per Unneberg <per.unneberg@scilifelab.se>
+
+This file may be distributed and/or modified under the conditions of
+the LaTeX Project Public License, either version 1.2 of this license
+or (at your option) any later version.  The latest version of this
+license is in:
+
+   http://www.latex-project.org/lppl.txt
+
+and version 1.2 or later is part of all distributions of LaTeX version
+1999/12/01 or later.
+
+\endpreamble
+
+\generate{\file{macros.sty}{\from{macros.dtx}{package}}}
+
+\obeyspaces
+\Msg{*************************************************************}
+\Msg{*                                                           *}
+\Msg{* To finish the installation you have to move the following *}
+\Msg{* file into a directory searched by TeX:                    *}
+\Msg{*                                                           *}
+\Msg{*     macros.sty                                        *}
+\Msg{*                                                           *}
+\Msg{* To produce the documentation run the file macros.dtx  *}
+\Msg{* through LaTeX.                                            *}
+\Msg{*                                                           *}
+\Msg{* Happy TeXing!                                             *}
+\Msg{*                                                           *}
+\Msg{*************************************************************}
+
+\endgroup
+%</batchfile>
+%<*driver>
+\ProvidesFile{macros.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<package>\ProvidesPackage{macros}
+%<*package>
+    [2014/10/02 v1.0 .dtx macros file]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{macros}[2014/10/02]
+\EnableCrossrefs         
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{macros.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0}{2014/10/02}{Initial version}
+%
+% \GetFileInfo{macros.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+% 
+%
+% \title{The \textsf{macros} package\thanks{This document
+%   corresponds to \textsf{macros}~\fileversion, dated \filedate.}}
+% \author{Per Unneberg\\ \texttt{per.unneberg@scilifelab.se}}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   \textsf{macros} is a collection of macros that I use in my LaTeX
+%   documents.
+%   
+% \end{abstract}
+%
+% \section{Introduction}
+% \label{sec:introduction}
+%
+% Put text here.
+%
+% \section{Usage}
+% \label{sec:usage}
+%
+% The package is loaded via
+% \begin{verbatim}
+% \usepackage{macros}
+% \end{verbatim}
+%
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+% \label{sec:implementation}
+%
+% First load required packages.
+%    \begin{macrocode}
+\RequirePackage{biblatex}
+\RequirePackage{ifthen}
+\RequirePackage{xspace}
+\RequirePackage{biocon}
+%    \end{macrocode}
+%
+% \subsection{Language options}
+% \label{sec:languageoptions}
+%
+% The language option currently supports swedish and english.
+%    \begin{macrocode}
+\def\my@language{english}
+\@ifpackageloaded{babel}{
+\iflanguage{english}{\def\my@language{english}}{}
+\iflanguage{swedish}{\def\my@language{swedish}}{}}{}
+\DeclareOption{english}{\def\my@language{english}}
+\DeclareOption{swedish}{\def\my@language{swedish}}
+\ProcessOptions
+%    \end{macrocode}
+%
+%
+% \section{Macros}
+% \label{sec:macros}
+%
+%
+% \subsection{Citation macros}
+% \label{sec:citationmacros}
+%
+% \begin{macro}{\journalshort}
+% \begin{macro}{\journaltitle}
+% \begin{macro}{\figref}
+% \begin{macro}{\adaptedfrom}
+%   
+\newcommand{\journalshort}[1]{\hfill\tiny\citeauthor{#1}\emph{\citefield{#1}{journaltitle}} (\citeyear{#1})\normalsize}
+\newcommand{\adaptedfrom}[1]{\hfill\tiny Adapted from\citeauthor{#1} (\citeyear{#1})\normalsize}
+\newcommand{\journaltitle}[2][\hfill\footnotesize]{#1\citeauthor{#2}\citetitle{#2} \emph{\citefield{#2}{journaltitle}} (\citeyear{#2})}
+\newcommand{\figref}[2]{\hfill\tiny\citeauthor{#1} (\citeyear{#1}) Fig #2\normalsize}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% \subsection{Biology macros}
+% \label{sec:biology}
+
+% \begin{macro}{\threep}
+% \begin{macro}{\fivep}
+% \begin{macro}{\dprime}
+% \begin{macro}{\rsq}
+% These macros typeset biological terms.
+%    \begin{macrocode}
+%% Biology
+\newcommand{\threep}{\ensuremath{3^\prime}\xspace}
+\newcommand{\fivep}{\ensuremath{5^\prime}\xspace}
+\newcommand{\dprime}{D\ensuremath{^\prime}\xspace}
+\newcommand{\rsq}{r\ensuremath{^2}\xspace}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+
+% \begin{macro}{Ce}
+% \begin{macro}{Hs}
+% \begin{macro}{Dr}
+%   These macros are defined via the |biocon| package. They are
+%   typeset with the |\animal| command.
+%    \begin{macrocode}
+%% Biocon animals
+\newanimal{Ce}{genus=Caenorhabditis, epithet=elegans}
+\newanimal{Hs}{genus=Homo, epithet=sapiens}
+\newanimal{Dr}{genus=Danio, epithet=rerio}
+\newanimal{Mm}{genus=Mus, epithet=musculus}
+%    \end{macrocode}
+%   
+% \end{macro}
+% \end{macro}
+% \end{macro}
+%
+% 
+% \subsection{Version control}
+% \label{sec:version-control}
+%
+% I define a default string for inclusion in a |\thanks| statement.
+% Note that the version tags are based on the variables defined in the
+% bundle |vc| for latex.
+%    \begin{macrocode}
+\newcommand{\VCfileversion}{\GITAbrHash}
+\newcommand{\VCcheckin}{\GITAuthorDate}
+\newcommand{\VCdatestring}[1]%
+[This file is based on version \VCfileversion \ (checkin \VCcheckin)]{#1}
+\ifthenelse{\equal{\my@language}{swedish}}{
+\renewcommand{\VCdatestring}[1]%
+[Den här filen baseras på version \VCfileversion \ (Checkin \VCcheckin)]{#1}}{}
+%    \end{macrocode}
+%
+% \Finale
+\endinput
+
+
+% Local Variables: 
+% mode: doctex
+% TeX-master: "."
+% End: 
