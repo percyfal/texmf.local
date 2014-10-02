@@ -84,7 +84,7 @@ and version 1.2 or later is part of all distributions of LaTeX version
 %</driver>
 % \fi
 %
-% \CheckSum{0}
+% \CheckSum{110}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -176,10 +176,15 @@ and version 1.2 or later is part of all distributions of LaTeX version
 % \begin{macro}{\figref}
 % \begin{macro}{\adaptedfrom}
 %   
+% \begin{macrocode}
+%
 \newcommand{\journalshort}[1]{\hfill\tiny\citeauthor{#1}\emph{\citefield{#1}{journaltitle}} (\citeyear{#1})\normalsize}
 \newcommand{\adaptedfrom}[1]{\hfill\tiny Adapted from\citeauthor{#1} (\citeyear{#1})\normalsize}
 \newcommand{\journaltitle}[2][\hfill\footnotesize]{#1\citeauthor{#2}\citetitle{#2} \emph{\citefield{#2}{journaltitle}} (\citeyear{#2})}
 \newcommand{\figref}[2]{\hfill\tiny\citeauthor{#1} (\citeyear{#1}) Fig #2\normalsize}
+%
+% \end{macrocode}
+%
 % \end{macro}
 % \end{macro}
 % \end{macro}
